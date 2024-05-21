@@ -9,18 +9,18 @@ import LastBookingDetails from '../Components/LastBookingDetails'
 const Home = () => {
   return (
     <div className='container'>
-    <div>
+    <div className='wrapper'>
       <div className='select_movie_component'>
       <SelectMovie />
       </div>
-      <div>
+      <div className='last_booking_details_conatiner'>
         <LastBookingDetails/>
       </div>
       </div>
       <div>
         <TimeSchedule />
         <SelectSeats />
-        <button>Book now</button>
+        <button className='BN-btn'>Book now</button>
       </div>
     </div>
   )

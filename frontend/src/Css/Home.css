@@ -1,5 +1,12 @@
 .select_movie_component{
     flex-grow: 1;
-    
+}
 
+.container{
+    width: 80%;
+    margin: 30px auto;
+    padding: 30px 30px 10px 30px;
+    background-color:blanchedalmond;
+    border: 2px solid black;
+    border-radius: 20px;
 }
