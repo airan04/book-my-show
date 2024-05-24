@@ -16,7 +16,7 @@ const Home = () => {
       <div className='last_booking_details_conatiner'>
         <LastBookingDetails/>
       </div>
-      </div>
+    </div>
       <div>
         <TimeSchedule />
         <SelectSeats />

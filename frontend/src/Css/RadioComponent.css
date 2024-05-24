@@ -5,6 +5,21 @@
     margin: 10px;
 }
 
+.form-check-label.active{
+    background-color: red;
+    color: black;
+    cursor: pointer;
+    user-select: none;
+}
+
+.form-check-label.inactive{
+    user-select: none;
+}
+
+.inactive:hover{
+    background-color: red;
+}
+
 .text{
     font-size: 17px;
     text-align: center;
