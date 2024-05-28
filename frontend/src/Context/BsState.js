@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BsContext from "./BsContext";
 
 const BsState=(props)=>{
+
+    const [errorPopup,setErrorPopup]= useState(false)
+    const [errorMessage,setErrorMessage]=useState("")
 
     const [movie,changeMovie]= useState('');
     const [noOfSeats,changeNoOfSeats]=useState({
@@ -15,8 +18,60 @@ const BsState=(props)=>{
 
     const [time,changeTime]=useState('');
     const [lastBookingDetails,setLastBookingDetails]=useState('');
+
+    const handlePostBooking=async()=>{
+      const response = await fetch('https://localhost:8080/api/booking',{
+        headers:{
+
+        },
+        body:JSON.stringify({movie:movie,slot:time,seats:noOfSeats}),
+      })
+
+      const data= await response.json()
+      setErrorPopup(true)
+      setErrorMessage(data.message)
+
+      if(response.status=== 200){
+        changeTime("")
+        changeMovie("")
+        setLastBookingDetails(data.data)
+
+        window.localStorage.clear()
+      }
+    }
+
+    const handleGetBooking=async()=>{
+
+      const response=await fetch('https://localhost:8080/api/booking',{
+        method:"Get"
+      })
+      const data=await response.json();
+
+      setLastBookingDetails(data.data)
+    }
+
+    useEffect(()=>{
+      const movie=window.localStorage.getItem("movie")
+      const slot=window.localStorage.getItem("slot")
+      const seats=JSON.parse(window.localStorage.getItem("seats"))
+
+      if(movie){
+        changeMovie(movie)
+      }
+      if(slot){
+        changeTime(slot)
+      }
+      if(seats){
+        changeNoOfSeats(seats)
+      }
+
+
+    },[])
+
     return (
-      <BsContext.Provider value={{movie,changeMovie,time,changeTime,noOfSeats,changeNoOfSeats,lastBookingDetails}}>{props.children}</BsContext.Provider>
+      <BsContext.Provider value={{movie,changeMovie,time,changeTime,
+      noOfSeats,changeNoOfSeats,lastBookingDetails,handleGetBooking,handlePostBooking,
+      errorMessage,errorPopup,setErrorMessage,setErrorPopup}}>{props.children}</BsContext.Provider>
     )
 }
 

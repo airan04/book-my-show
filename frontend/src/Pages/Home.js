@@ -1,12 +1,35 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import SelectMovie from '../Components/SelectMovie'
 import '../Css/Home.css'
 import TimeSchedule from '../Components/TimeSchedule'
 import SelectSeats from '../Components/SelectSeats'
 import LastBookingDetails from '../Components/LastBookingDetails'
+import BsContext from '../Context/BsContext'
 
 
 const Home = () => {
+
+  const context=useContext(BsContext)
+
+  const{
+    movie,
+    time,
+    noOfSeat,
+    handlePostBooking,
+    setErrorPopup,
+    setErrorMessage,
+  }= context
+
+
+  const handleBookNow=()=>{
+      if(!movie){
+        setErrorPopup(true)
+        setErrorMessage("Please enter movie")
+      }else{
+        handlePostBooking()
+      }
+  }
+
   return (
     <div className='container'>
     <div className='wrapper'>
@@ -20,7 +43,7 @@ const Home = () => {
       <div>
         <TimeSchedule />
         <SelectSeats />
-        <button className='BN-btn'>Book now</button>
+        <button className='BN-btn' onClick={handleBookNow}>Book now</button>
       </div>
     </div>
   )
