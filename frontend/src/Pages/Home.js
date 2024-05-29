@@ -5,7 +5,7 @@ import TimeSchedule from '../Components/TimeSchedule'
 import SelectSeats from '../Components/SelectSeats'
 import LastBookingDetails from '../Components/LastBookingDetails'
 import BsContext from '../Context/BsContext'
-
+import Button from '@mui/material/Button';
 
 const Home = () => {
 

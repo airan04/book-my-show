@@ -9,10 +9,10 @@ app.use(cors());
 app.use(express.json())
 
 connectDB()
-app.use("api",require("./routes"))
+app.use("/api",require("./routes"))
 
 
-app.listen(8000,()=>{
+app.listen(8080,()=>{
     console.log("server started")
 })
 

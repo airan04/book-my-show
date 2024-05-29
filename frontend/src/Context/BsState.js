@@ -20,7 +20,8 @@ const BsState=(props)=>{
     const [lastBookingDetails,setLastBookingDetails]=useState('');
 
     const handlePostBooking=async()=>{
-      const response = await fetch('https://localhost:8080/api/booking',{
+      const response = await fetch('http://localhost:8080/api/booking',{
+        method: 'POST',
         headers:{
 
         },
@@ -42,11 +43,9 @@ const BsState=(props)=>{
 
     const handleGetBooking=async()=>{
 
-      const response=await fetch('https://localhost:8080/api/booking',{
-        method:"Get"
-      })
+      const response=await fetch('http://localhost:8080/api/booking')
       const data=await response.json();
-
+    
       setLastBookingDetails(data.data)
     }
 
@@ -70,7 +69,7 @@ const BsState=(props)=>{
 
     return (
       <BsContext.Provider value={{movie,changeMovie,time,changeTime,
-      noOfSeats,changeNoOfSeats,lastBookingDetails,handleGetBooking,handlePostBooking,
+      noOfSeats,changeNoOfSeats,lastBookingDetails,setLastBookingDetails,handleGetBooking,handlePostBooking,
       errorMessage,errorPopup,setErrorMessage,setErrorPopup}}>{props.children}</BsContext.Provider>
     )
 }
