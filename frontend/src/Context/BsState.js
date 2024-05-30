@@ -23,12 +23,13 @@ const BsState=(props)=>{
       const response = await fetch('http://localhost:8080/api/booking',{
         method: 'POST',
         headers:{
-
+          "Content-Type": "application/json"
         },
-        body:JSON.stringify({movie:movie,slot:time,seats:noOfSeats}),
+        body:JSON.stringify({movie:movie,slots:time,seats:noOfSeats}),
       })
-
+      console.log(JSON.stringify({movie:movie,slots:time,seats:noOfSeats}))
       const data= await response.json()
+      console.log("data",data)
       setErrorPopup(true)
       setErrorMessage(data.message)
 

@@ -11,9 +11,8 @@ const LastBookingDetails = () => {
 
   useEffect(()=>{
     handleGetBooking()
-    console.log(lastBookingDetails);
   },[])
-
+  // console.log(lastBookingDetails);
   return (
     <div>
       <h2>Last booking details:</h2>
@@ -23,10 +22,10 @@ const LastBookingDetails = () => {
           <div>
             <p>Seats:</p>
             <ul>
-              {seats.map((seats,index)=>{
+              {seats.map((seat,index)=>{
               return (
-              <li>
-                {/* (seat):{Number(lastBookingDetails.seats[seats])} */}
+              <li key={index}>
+                {seat}:{Number(lastBookingDetails.seats[seat])}
               </li>
               );
               })}

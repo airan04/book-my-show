@@ -5,7 +5,7 @@ const {seats} = require("../frontend/src/data")
 const TicketSchema=new mongoose.Schema({
     movie:{type:String},
     slot:{type:String},
-    seat:{
+    seats:{
         A1:{type:Number},
         A2:{type:Number},
         A3:{type:Number},

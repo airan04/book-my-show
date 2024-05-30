@@ -9,12 +9,14 @@ router.use(express.json())
 router.use(cors())
 
 router.post("/booking",async(req,res)=>{
-    const {movie,slots,seats}=req.body
+    const {movie,slot,seats}=req.body
+    // console.log(req.body)
     try{
-       const myData=new Ticket({movie,slots,seats})
+       const myData=new Ticket({movie,slot,seats})
+       console.log("my data is",myData)
        const saved=await myData.save()
-       console.log(saved)
-       res.status(200).json({data:myData,message:"Booking successful"})
+    //    console.log(saved)
+       res.status(200).json({data:saved,message:"Booking successful"})
     }catch(err){
         res.status(500).json(
             {data:null,message:"Something went wrong try again"}
