@@ -13,7 +13,7 @@ router.post("/booking",async(req,res)=>{
     // console.log(req.body)
     try{
        const myData=new Ticket({movie,slot,seats})
-       console.log("my data is",myData)
+    //    console.log("my data is",myData)
        const saved=await myData.save()
     //    console.log(saved)
        res.status(200).json({data:saved,message:"Booking successful"})

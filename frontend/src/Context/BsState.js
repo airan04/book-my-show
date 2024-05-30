@@ -25,7 +25,7 @@ const BsState=(props)=>{
         headers:{
           "Content-Type": "application/json"
         },
-        body:JSON.stringify({movie:movie,slots:time,seats:noOfSeats}),
+        body:JSON.stringify({movie:movie,slot:time,seats:noOfSeats}),
       })
       console.log(JSON.stringify({movie:movie,slots:time,seats:noOfSeats}))
       const data= await response.json()
