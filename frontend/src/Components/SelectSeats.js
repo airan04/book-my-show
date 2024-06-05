@@ -11,7 +11,7 @@ const SelectSeats = () => {
 
   return (
     <div>
-      <h1>Select seats:</h1>
+      <h1 className='text-4xl font-extrabold dark:text-black'>Select seats:</h1>
       <div>
         {seats.map((el,index)=>{
           return (

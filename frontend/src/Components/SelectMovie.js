@@ -18,7 +18,7 @@ const SelectMovie = () => {
   return (
     <>
     <div className='SM_heading'>
-       <h1>Movies list:</h1>
+       <h1 className='text-4xl font-bold leading-none tracking-tight text-black-500 md:text-5xl lg:text-6xl'>Movies list:</h1>
     </div>
     <div className='SM_container'>
         {moviesList.map((el,index)=>{

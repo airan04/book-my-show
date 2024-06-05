@@ -31,11 +31,11 @@ const Home = () => {
 
   return (
     <div className='container'>
-    <div className='wrapper'>
-      <div className='select_movie_component'>
+    <div className='wrapper flex border-solid'>
+      <div className='select_movie_component flex-auto w-70 border border-sky-500'>
       <SelectMovie />
       </div>
-      <div className='last_booking_details_conatiner'>
+      <div className='last_booking_details_conatiner flex auto w-30 border border-sky-500'>
         <LastBookingDetails/>
       </div>
     </div>
